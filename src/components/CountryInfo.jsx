@@ -120,7 +120,6 @@ const CountryInfo = ({
     if (borders.length)
       axios
         .get(filterByCode(borders), {
-          mode: 'cors',
           headers: {
             'Access-Control-Allow-Origin': '*',
           },

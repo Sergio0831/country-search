@@ -39,7 +39,6 @@ const AppProvider = ({ children }) => {
     if (!countries.length) {
       axios
         .get(ALL_COUNTRIES, {
-          mode: 'cors',
           headers: {
             'Access-Control-Allow-Origin': '*',
           },
