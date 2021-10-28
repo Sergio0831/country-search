@@ -1,11 +1,12 @@
 import { useState, useEffect } from 'react';
 import styled from 'styled-components/macro';
+import { useGlobalContext } from '../context';
 import { CustomSelect } from './CustomSelect';
 import Search from './Search';
 import { Wrapper } from './Wrapper';
 
 const StyledControls = styled.div`
-  margin-top: 3rem;
+  margin-top: 3.6rem;
 `;
 
 const options = [
@@ -19,6 +20,13 @@ const options = [
 const Controls = () => {
   const [search, setSearch] = useState('');
   const [region, setRegion] = useState('');
+
+  const { onSearch } = useGlobalContext();
+
+  useEffect(() => {
+    const regionValue = region?.value || '';
+    onSearch(search, regionValue);
+  }, [search, region, onSearch]);
 
   return (
     <StyledControls>

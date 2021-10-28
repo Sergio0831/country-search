@@ -4,24 +4,30 @@ import { IoSearch } from 'react-icons/io5';
 const InputContainer = styled.label`
   width: 100%;
   background-color: var(--elements-bg-colors);
-  padding: 18px 32px;
+  padding: 14px 32px;
   display: flex;
   gap: 24px;
   align-items: center;
   box-shadow: 0px 2px 9px rgba(0, 0, 0, 0.0532439);
   border-radius: var(--radius);
   margin-bottom: 40px;
-  transition: all 100ms;
 
-  @media (min-width: 712px) {
+  @media (min-width: 30em) {
+    padding: 1.8rem 3.2rem;
+  }
+
+  @media (min-width: 46.125em) {
     margin-bottom: 0;
-    width: 480px;
+    width: 48rem;
   }
 
   svg {
     color: var(--elements-colors);
-    font-size: 18px;
-    transition: var(--transition);
+    font-size: var(--fs-md);
+
+    @media (min-width: 30em) {
+      font-size: 1.8rem;
+    }
   }
 `;
 
@@ -31,11 +37,10 @@ const Input = styled.input.attrs({
 })`
   color: var(--elements-colors);
   font-size: var(--fs-sm);
-  line-height: 20px;
+  line-height: 2rem;
   border: none;
   outline: none;
   background-color: var(--elements-bg-colors);
-  transition: all 100ms;
 `;
 
 const Search = ({ search, setSearch }) => {
