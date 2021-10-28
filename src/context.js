@@ -42,7 +42,7 @@ const AppProvider = ({ children }) => {
       });
     }
     setLoading(false);
-  }, []);
+  }, [countries.length]);
 
   useEffect(() => {
     handleSearch();
