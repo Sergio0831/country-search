@@ -59,7 +59,12 @@ const SingleCountryPage = () => {
 
   const getCountry = useCallback(async () => {
     setLoading(true);
-    const { data } = await axios(searchByCountry(name));
+    const { data } = await axios(searchByCountry(name), {
+      mode: 'cors',
+      headers: {
+        'Access-Control-Allow-Origin': '*',
+      },
+    });
     if (data) {
       const {
         nativeName,

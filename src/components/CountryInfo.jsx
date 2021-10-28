@@ -119,7 +119,12 @@ const CountryInfo = ({
   useEffect(() => {
     if (borders.length)
       axios
-        .get(filterByCode(borders))
+        .get(filterByCode(borders), {
+          mode: 'cors',
+          headers: {
+            'Access-Control-Allow-Origin': '*',
+          },
+        })
         .then(({ data }) => setBorderCountries(data.map((item) => item.name)));
   }, [borders]);
 

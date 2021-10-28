@@ -37,9 +37,16 @@ const AppProvider = ({ children }) => {
   useEffect(() => {
     setLoading(true);
     if (!countries.length) {
-      axios.get(ALL_COUNTRIES).then(({ data }) => {
-        setCountries(data);
-      });
+      axios
+        .get(ALL_COUNTRIES, {
+          mode: 'cors',
+          headers: {
+            'Access-Control-Allow-Origin': '*',
+          },
+        })
+        .then(({ data }) => {
+          setCountries(data);
+        });
     }
     setLoading(false);
   }, [countries.length]);
